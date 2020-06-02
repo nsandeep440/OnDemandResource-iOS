@@ -52,6 +52,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func actionNext(_ sender: Any) {
+        odrRequest.downloadResource(tag: "SwiftLanguage") { (isSuccess, error) in
+            print("Completed downloading: \(isSuccess)")
+            print("Error: \(error?.localizedDescription ?? "No error")")
+        }
     }
     
 }

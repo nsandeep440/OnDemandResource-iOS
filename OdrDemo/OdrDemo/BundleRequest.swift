@@ -8,10 +8,12 @@
 
 import Foundation
 
+typealias ProgressCallback = (_ progess: Progress) -> Void
+
 class ODRRequest: NSObject {
     
     private var request: NSBundleResourceRequest?
-    private var progressCallback: ((_ progress: Progress) -> Void)?
+    private var progressCallback: ProgressCallback?
     
     func downloadResource(tag: String, completion: @escaping ((_ success: Bool, _ error: Error?) -> Void)) {
         self.request = NSBundleResourceRequest(tags: [tag], bundle: Bundle.main)
@@ -57,90 +59,3 @@ class ODRRequest: NSObject {
         }
     }
 }
-
-
-//
-//
-//typealias ProgressCallback = (_ progess: Progress) -> Void
-//
-//class ODRRequest: NSObject {
-//    private var request: NSBundleResourceRequest!
-//    private var progress: ProgressCallback?
-//
-//    /// This method will download resource if needed for tag passed.
-//    ///
-//    /// - Parameters:
-//    ///   - tag: String - Resource tag name
-//    ///   - progress: ProgressHandler - Will called on fraction completion value change
-//    ///   - completion: CompletionHandler - Will be called on completion of downloading/already available
-//    func downloadResource(tag:String, progress:ProgressHandler?, completion: CompletionHandler?) {
-//
-//        self.request = NSBundleResourceRequest(tags: [tag], bundle: Bundle.main)
-//
-//        // persist progress handler and track progress if needed
-//        self.progress = progress
-//        self.trackProgressIfNeeded()
-//
-//        //  check and download resources
-//        self.request.conditionallyBeginAccessingResources { (isAvailable) in
-//
-//            if isAvailable {
-//                // resource available
-//                Logger.debug("Resource with tag \(tag) is already downloaded,")
-//                completion?(nil)
-//                self.end()
-//            }
-//            else {
-//                Logger.debug("Downloading resource with tag \(tag)")
-//                self.request.beginAccessingResources(completionHandler: { (error) in
-//
-//                    Logger.debug("Downloading resource completed")
-//
-//                    if let _error = error {
-//                        Logger.debug(_error.localizedDescription)
-//                    }
-//                    completion?(error)
-//                    self.end()
-//                })
-//            }
-//        }
-//    }
-//
-//    func cancel() {
-//        // cancel request
-//        self.request.progress.cancel()
-//
-//        self.end()
-//    }
-//
-//    private func trackProgressIfNeeded() {
-//
-//        if self.progress != nil {
-//            self.request.progress.addObserver(self, forKeyPath: ProgressTrackerKey, options: .new, context: nil)
-//        }
-//    }
-//
-//    private func end() {
-//
-//
-//        if self.request != nil {
-//            // end access
-//            self.request.endAccessingResources()
-//
-//            // remove tracking observer
-//            self.request.progress.removeObserver(self, forKeyPath: ProgressTrackerKey)
-//        }
-//
-//        // clean properties
-//        self.request = nil
-//        self.progress = nil
-//    }
-//
-//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-//
-//        if let keyPath = keyPath, keyPath == ProgressTrackerKey {
-//
-//            self.progress?(self.request.progress)
-//        }
-//    }
-//}

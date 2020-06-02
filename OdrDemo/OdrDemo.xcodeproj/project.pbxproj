@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44A723AC24846C12005BD183 /* SwiftLanguage.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 44A723AB24846C12005BD183 /* SwiftLanguage.pdf */; settings = {ASSET_TAGS = (SwiftLanguage, ); }; };
 		F44481A22350615900AB376E /* BundleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44481A12350615900AB376E /* BundleRequest.swift */; };
 		F44481A523506E1A00AB376E /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44481A423506E1A00AB376E /* PDFViewController.swift */; };
 		F4761FF6234F044B00523262 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4761FF5234F044B00523262 /* AppDelegate.swift */; };
@@ -17,7 +18,6 @@
 		F4762002234F044B00523262 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4762000234F044B00523262 /* LaunchScreen.storyboard */; };
 		F476200D234F044C00523262 /* OdrDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F476200C234F044C00523262 /* OdrDemoTests.swift */; };
 		F4762018234F044C00523262 /* OdrDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4762017234F044C00523262 /* OdrDemoUITests.swift */; };
-		F4762026234F061800523262 /* SwiftLanguage.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F4762025234F061800523262 /* SwiftLanguage.pdf */; settings = {ASSET_TAGS = (SwiftLanguage, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44A723AB24846C12005BD183 /* SwiftLanguage.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SwiftLanguage.pdf; sourceTree = "<group>"; };
 		F44481A12350615900AB376E /* BundleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleRequest.swift; sourceTree = "<group>"; };
 		F44481A423506E1A00AB376E /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		F4761FF2234F044B00523262 /* OdrDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OdrDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +55,6 @@
 		F4762013234F044C00523262 /* OdrDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OdrDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4762017234F044C00523262 /* OdrDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdrDemoUITests.swift; sourceTree = "<group>"; };
 		F4762019234F044C00523262 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4762025234F061800523262 /* SwiftLanguage.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SwiftLanguage.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 		F4761FF4234F044B00523262 /* OdrDemo */ = {
 			isa = PBXGroup;
 			children = (
-				F4762025234F061800523262 /* SwiftLanguage.pdf */,
+				44A723AB24846C12005BD183 /* SwiftLanguage.pdf */,
 				F4761FF5234F044B00523262 /* AppDelegate.swift */,
 				F4761FF7234F044B00523262 /* SceneDelegate.swift */,
 				F4761FF9234F044B00523262 /* ViewController.swift */,
@@ -201,9 +201,9 @@
 			attributes = {
 				KnownAssetTags = (
 					SwiftLanguage,
-					inital,
-					onDemand,
-					prefetch,
+					"image-swift",
+					"image-swiftbook",
+					"image-swiftpl",
 				);
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
@@ -249,7 +249,7 @@
 			files = (
 				F4762002234F044B00523262 /* LaunchScreen.storyboard in Resources */,
 				F4761FFF234F044B00523262 /* Assets.xcassets in Resources */,
-				F4762026234F061800523262 /* SwiftLanguage.pdf in Resources */,
+				44A723AC24846C12005BD183 /* SwiftLanguage.pdf in Resources */,
 				F4761FFD234F044B00523262 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,10 +452,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSET_PACK_MANIFEST_URL_PREFIX = "https://example.com/pathToFolderWithAssetpacks/";
+				ASSET_PACK_MANIFEST_URL_PREFIX = "http://127.0.0.1:8000/odr_files/";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S86F3YN4XS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OdrDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -473,9 +473,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSET_PACK_MANIFEST_URL_PREFIX = "http://127.0.0.1:8000/odr_files/";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S86F3YN4XS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OdrDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
