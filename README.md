@@ -49,8 +49,3 @@ Most of the times, we intend to test our application in mobile (real device) rat
 
 Thank you!
 
-
-
-
-When we are using local (dev) server we can also test these request on other machine (iOs devices, Android mobiles and any other 
-
