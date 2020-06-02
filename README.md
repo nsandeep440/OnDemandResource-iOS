@@ -12,7 +12,7 @@ Pre-requisite: Should be an iOS developer and familiar with ODR concept.
 
 1. Download this project. (or You can copy and paste the “odr_custom_host” folder in your application’s root folder)
 2. In the project navigator -> Select the Target -> Build Settings -> Under Assets Category -> Enable On Demand Resources -> Yes
-3. In the project navigator -> Select the Target -> Build Settings -> Under Assets Category -> Asset pack manifest URL prefix -> add this “http://127.0.0.1:8000/odr_files/”
+3. In the project navigator -> Select the Target -> Build Settings -> Under Assets Category -> Asset pack manifest URL prefix -> add this `http://127.0.0.1:8000/odr_files/`
 4. Add tags to resources. (Note: For custom hosting, only Download On Demand Resource - prefetched tag works)
 5. Generate asset packs for your server by exporting an archive of your app.
 
@@ -21,21 +21,21 @@ Pre-requisite: Should be an iOS developer and familiar with ODR concept.
 - Chose your archive of an app
 - Select “Distribute App” -> select method of distribution (Ad Hoc, Enterprise or Dev) -> Next
 - Select “Host on server” under On-Demand-Resources and paste the same link as provided in Asset pack manifest URL under Build setting (check point 3). If App thinning is selected, asset packs are generated for all iPhone, iPad devices. Click on Next and export. 
-- When export is completed, xcode generates app bundles and asset packs. Asset packs are available in On demand resource folder. These asset pack contains a name in following order: “{bundle-identifier}.{tag-name}.assetpack”. If Appthinning is selected, “{bundle-identifier}.{tag-name}-{app-thinning}.assetpack”.
+- When export is completed, xcode generates app bundles and asset packs. Asset packs are available in On demand resource folder. These asset pack contains a name in following order: `{bundle-identifier}.{tag-name}.assetpack`. If Appthinning is selected, `{bundle-identifier}.{tag-name}-{app-thinning}.assetpack`.
 
-6. Copy these asset packs and paste into our “odr_custom_host/odr_files” folder (from point 1). Once you start your local server, iOS app should be able to download ODR files based on a request.
+6. Copy these asset packs and paste into our `odr_custom_host/odr_files` folder (from point 1). Once you start your local server, iOS app should be able to download ODR files based on a request.
 
-### Set up local server: (Follow installantion guide lines to [setup local server](https://github.com/nsandeep440/flask_restful_api/tree/flask_basic_api#installation-guilde0))
+### Set up local server: (Follow installantion guide lines to setup local server [here](https://github.com/nsandeep440/flask_restful_api/tree/flask_basic_api#installation-guilde0))
 - Open terminal and navigate to “odr_custom_host” folder using command - cd User/yourDirectory/odr_custom_host
 - Create virtual env and pip3 install flask and run you app (Follow installantion guide lines to [setup local server](https://github.com/nsandeep440/flask_restful_api/tree/flask_basic_api#installation-guilde0))
 - Go to xcode and run iOS project. If all steps are followed, app will be able to download on-demand-resources from your local server whenever you request for a resource.
 
 ### Requesting Access:
   App must request acces to tag before accessing an tagged resource. If accessed tag is already available on device, it will not download the resource. If it is ain’t downloaded, it request for downloading with provided URL (check asset pack manifest URL).
-- To request access, Initialize NSBundleResourceRequest with tags like this “NSBundleResourceRequest(tags: [tag], bundle: Bundle.main)”
+- To request access, Initialize `NSBundleResourceRequest` with tags like this `NSBundleResourceRequest(tags: [tag], bundle: Bundle.main)`
 - You can use one of the two methods to request acces:
-    - 1. conditionallyBeginAccessingResourcesWithCompletionHandler: is used to check whether the resource is already available in device. Completion handler provides you a boolean to check availability of resource.
-    - 2. beginAccessingResourcesWithCompletionHandler: if resource is not available, use this method to download the resource.
+    - 1. ```conditionallyBeginAccessingResourcesWithCompletionHandler:``` is used to check whether the resource is already available in device. Completion handler provides you a boolean to check availability of resource.
+    - 2. ```beginAccessingResourcesWithCompletionHandler:``` if resource is not available, use this method to download the resource.
 For more information, check `BundleRequest.swift` file in this demo project.
 
 
