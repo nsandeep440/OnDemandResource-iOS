@@ -1,4 +1,4 @@
-# On Demand Resource (ODR)
+# On Demand Resource (ODR) iOS
 
   On demand resources are app contents and are seperate from app bundle that are downloaded. ODR files are hosted on apple servers when an app is submited to app strore or coustom hosting (your server) for internal development (or Ad Hoc) testing or an enterprise application.
 
