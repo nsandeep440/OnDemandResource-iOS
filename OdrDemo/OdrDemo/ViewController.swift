@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     let odrRequest = ODRRequest()
-    let Test: Int = 0
+    let Test: CGFloat = 0
 
     @IBOutlet weak var imageViewTagOne: UIImageView!
     @IBOutlet weak var imageViewTagTwo: UIImageView!
