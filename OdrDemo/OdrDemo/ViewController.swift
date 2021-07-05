@@ -9,8 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
     let odrRequest = ODRRequest()
+    let test: Int = 0
 
     @IBOutlet weak var imageViewTagOne: UIImageView!
     @IBOutlet weak var imageViewTagTwo: UIImageView!
@@ -57,6 +58,5 @@ class ViewController: UIViewController {
             print("Error: \(error?.localizedDescription ?? "No error")")
         }
     }
-    
-}
 
+}
