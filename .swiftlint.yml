@@ -3,6 +3,7 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
   - colon
   - comma
   - control_statement
+  - trailing_whitespace
 opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - empty_count # Find all the available rules by running: `swiftlint rules`
 
@@ -36,8 +37,8 @@ type_body_length:
   - 400 # error
 # or they can set both explicitly
 file_length:
-  warning: 60
-  error: 80
+  warning: 500
+  error: 1200
 # naming rules can set warnings/errors for min_length and max_length
 # additionally they can set excluded names
 type_name:
